@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Acme|Oswald:600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Acme|Oswald2:300&display=swap');
+
+#titulo{
+    font-family: 'Oswald', sans-serif;
+    font-size: 45px;
+    color:rgb(126, 255, 245);
+}
+
+#nav-link{
+    color: rgb(126, 255, 245);
+}
+
+#container-principal{
+    background-color:#ecf0f1;
+    text-align: center;
+}
+
+#logo{
+    height: 40px;
+}
+
+#busqueda{
+    font-family: 'Oswald2', sans-serif;
+    font-size: 13px;
+}
+
+#card{
+    text-align: center;
+}
+#title-card{
+    font-family: 'Oswald', sans-serif;
+    font-size: 19px;
+}
+
+#body-card{
+    text-align: justify;
+}
+
+#body-card-item{
+    color: green;
+}
+
+
+#btnEliminar{
+    color: rgb(126, 255, 245);
+    background:#2f3640;
+    font-family: 'Oswald2', sans-serif;
+    font-size: 19px;
+}
+
+p{
+    font-family: 'Oswald2', sans-serif;
+    font-size: 16px;
+}
+
+li{
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+}
+table{
+    font-family: 'Oswald2', sans-serif;
+    font-size: 15px;
+}

@@ -1,0 +1,29 @@
+{%extends "index.html"%}
+{%block content%}
+  <table class="table text-center">
+    <thead>
+      <tr>
+        <th scope="col">Rank</th>
+        <th scope="col">Name</th>
+        <th scope="col">Symbol</th>
+        <th scope="col">Price-USD</th>
+        <th scope="col">Market-Cap</th>
+        <th scope="col">Volume (24hs)</th>
+        <th scope="col">Last-Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for t in top %}
+        <tr>
+          <td>{{ t["rank"] }}</td>
+          <td>{{ t["name"] }}</td>
+          <td>{{ t["symbol"] }}</td>
+          <td>$ {{ "{:.8}".format(t["price_usd"]) }}</td>
+          <td>$ {{ "{:1.5}".format(t["market_cap_usd"]) }}</td>
+          <td>{{ "{:.2}".format(t["24h_volume_usd"]) }}%</td>
+          <td>{{ t["last_updated"] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{%endblock%}

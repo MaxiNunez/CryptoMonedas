@@ -1,0 +1,26 @@
+{%extends "index.html"%}
+{%block content%}
+{% for moneda in cryptoMoneda %}
+  <br>
+  <form action="/eliminar?name={{moneda['name']}}" method="post">
+  <div id="card" class="card">
+    <div id="title-card" class="card-header">Nombre: {{moneda["name"]}}, Simbolo: {{moneda["symbol"]}}</div>
+    <div id="body-card" class="card-body">
+      <p class="card-title"><b>Rank actualmente:</b> {{moneda["rank"]}}</p>
+      <p class="card-text"><b>Precio USD:</b> ${{"{:.8}".format(moneda["price_usd"])}}</p>
+      <p class="card-text"><b>Precio Btc:</b> {{moneda["price_btc"]}}</>
+      <p class="card-text"><b>Volumen USD en 24hs:</b> {{ "{:.2}".format(moneda["24h_volume_usd"]) }}%</p>        
+      <p class="card-text"><b>Tapa del mercado:</b> ${{ "{:1.5}".format(moneda["market_cap_usd"]) }}</p>
+      <p class="card-text"><b>Oferta total:</b> {{moneda["total_supply"]}}</p>
+      <p class="card-text"><b>Cambio porcentual en 1 hora:</b> {{moneda["percent_change_1h"]}}%</p>
+      <p class="card-text"><b>Cambio porcentual en 24 horas:</b> {{moneda["percent_change_24h"]}}%</p>
+      <p id="" class="card-text"><b>Cambio porcentual en 7 dias:</b> {{moneda["percent_change_7d"]}}%</p>
+      <p class="card-text"><b>Ultima actualizacion:</b> {{moneda["last_updated"]}}</p>
+    </div>
+    <div class="text-center py-2">
+      <a id="btnEliminar" href="/eliminar?name={{moneda['name']}}" class="btn">Eliminar Moneda</a>
+    </div>
+  </div>
+  </form>
+{% endfor %}
+{%endblock%}

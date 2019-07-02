@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='coins.png')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    
+    <title>Cryptongo!</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse bg-dark">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <h4 id="titulo" class="text-center"><img id="logo" src="/static/coins.png" alt="?"> Crypto Monedas</h4>
+        </div>
+        <ul class="nav navbar">
+          <li class="nav-item">
+            <a class="nav-link" id="nav-link" href="/">Tickers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="nav-link" href="/top20">Top 20</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+            
+    <br>
+
+    <div class="container py-1" id="container-principal">
+      {%block content%}
+      <br>
+      <!--<form action="/mostrarDatos?name={{tickers['name']}}" method="get">
+        <input class="form-control" id="busqueda" type="text" placeholder="Filtrar Crypto-Moneda ..."> 
+      </form>-->
+      
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Simbolo</th>
+            <th scope="col">Precio-USD</th>
+            <th scope="col">Market-Cap</th>
+            <th scope="col">Volume (24hs)</th>
+            <th scope="col">Last-Update</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for tic in tickers %}
+            <tr>
+              <td>{{ tic["rank"] }}</td>
+              <td><a href="/mostrarDatos?name={{tic['name']}}"" name="name">{{ tic["name"] }}</a></td>
+              <td>{{ tic["symbol"] }}</td>
+              <td>$ {{ "{:.8}".format(tic["price_usd"]) }}</td>
+              <td>$ {{ "{:1.5}".format(tic["market_cap_usd"]) }}</td>
+              <td>{{ "{:.2}".format(tic["24h_volume_usd"]) }}%</td>
+              <td>{{ tic["last_updated"] }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {%endblock%}
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
